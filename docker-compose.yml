@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15.1-alpine3.16
+    container_name: server_db
+    env_file:
+      - postgres.env
+    ports:
+      - "8001:5432"
+    networks:
+      iva_net:
+        ipv4_address: 1.0.1.2
+    restart: always
+
+  server_mon:
+    container_name: server_mon
+    env_file:
+      - server_mon.env
+    build:
+      context: ./server_mon
+      dockerfile: server_mon.Dockerfile
+    volumes:
+      - ./server_mon:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    networks:
+      iva_net:
+        ipv4_address: 1.0.1.1
+    restart: always
+
+networks:
+  iva_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 1.0.1.0/28
+          gateway: 1.0.1.14

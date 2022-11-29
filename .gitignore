@@ -1,0 +1,5 @@
+.idea
+/agent/.idea
+/agent/log
+/envs/*
+/server_mon/.idea
