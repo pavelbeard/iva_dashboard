@@ -1,0 +1,35 @@
+hosts:
+  # media servers
+  ivcs-media0:
+    protocol: http
+    address: 1.0.96.20
+    port: 11650
+  ivcs-media1:
+    protocol: http
+    address: 1.0.96.21
+    port: 11650
+  ivcs-media2:
+    protocol: http
+    address: 1.0.96.22
+    port: 11650
+  ivcs-media3:
+    protocol: http
+    address: 1.0.96.23
+    port: 11650
+  ivcs-media4:
+    protocol: http
+    address: 1.0.96.24
+    port: 11650
+    # main servers
+  ivcs-media-main1:
+    protocol: http
+    address: 1.0.96.25
+    port: 11650
+  ivcs-media-main2:
+    protocol: http
+    address: 1.0.96.25
+    port: 11650
+
+settings:
+  enable_scrapping: True
+
